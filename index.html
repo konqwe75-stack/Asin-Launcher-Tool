@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIN Tool Launcher - Quickly open Amazon internal tools for ASINs">
+  <title>ASIN Tool Launcher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>ASIN Tool Launcher</h2>
+
+  <label><strong>Select Region:</strong></label>
+  <select id="region" onchange="updateMarketplaceOptions()">
+    <option value="NA">NA</option>
+    <option value="EU">EU</option>
+    <option value="FE">FE</option>
+  </select>
+
+  <label><strong>Select Marketplace:</strong></label>
+  <select id="marketplace"></select>
+
+  <label><strong>Enter ASINs (space separated):</strong></label>
+  <textarea id="asinInput" rows="4" placeholder="e.g. B07X1KT6LD B08K2S1KZB"></textarea>
+
+  <div class="tool-lists">
+    <div class="tool-list">
+      <h3>Available Tools</h3>
+      <ul id="availableTools" ondragover="allowDrop(event)" ondrop="drop(event, 'available')">
+        <li draggable="true" data-id="blameo">Blame-O</li>
+        <li draggable="true" data-id="timemachine">Time Machine</li>
+        <li draggable="true" data-id="mediacentral">Media Central</li>
+        <li draggable="true" data-id="imagedebugger">Image Debugger</li>
+        <li draggable="true" data-id="bqe">Browse Query Editor</li>
+        <li draggable="true" data-id="vermontorphan">Vermont Orphan</li>
+        <li draggable="true" data-id="vermonteinstein">Vermont Einstein</li>
+        <li draggable="true" data-id="asintool">CSI ASIN Creator</li>
+        <li draggable="true" data-id="marketplacedata">CSI ASIN Marketplace Data</li>
+      </ul>
+    </div>
+
+    <div class="tool-list">
+      <h3>Selected Tools</h3>
+      <ul id="selectedTools" ondragover="allowDrop(event)" ondrop="drop(event, 'selected')"></ul>
+    </div>
+  </div>
+
+  <button onclick="openToolTabs()">Open Selected Tools</button>
+
+  <hr>
+  <p class="footer">Created by kevilobo</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
